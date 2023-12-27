@@ -1,13 +1,17 @@
 {
-  "name": "lib",
+  "name": "countx-ui",
+  "private": true,
   "version": "1.0.0",
-  "description": "A React TypeScript library built with esbuild",
+  "description": "React TypeScript ui components library built with esbuild",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build:ts": "tsc",
-    "build": "npm run build:ts && node esbuild.config.js"
+    "build": "npm run build:ts && node esbuild.config.js",
+    "update-tailwind-config": "node update-tailwind-config.js",
+    "postinstall": "npm run build && npm run clean",
+    "clean": "rimraf !(dist) && mv dist/* . && rimraf dist"
   },
   "keywords": [
     "react",
@@ -15,21 +19,27 @@
     "library",
     "esbuild"
   ],
-  "author": "Your Name",
-  "license": "MIT",
+  "author": "countX",
   "dependencies": {
+    "@react-spring/web": "^9.7.3",
+    "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",
+    "postcss": "^8.4.32",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-transition-group": "^4.4.5",
-    "tailwind-merge": "^2.2.0"
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "@types/react-transition-group": "^4.4.10",
     "esbuild": "^0.13.10",
+    "mv": "^2.1.1",
+    "rimraf": "^5.0.5",
     "typescript": "^4.4.4"
   }
 }

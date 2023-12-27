@@ -9,7 +9,7 @@ esbuild
     format: 'cjs',
     platform: 'node',
     sourcemap: true,
-    target: 'node14',
-    external: ['react', 'react-dom', 'typescript'],
+    target: 'node18',
+    external: ['react', 'react-dom', 'typescript', 'react-transition-group'],
   })
   .catch(() => process.exit(1));

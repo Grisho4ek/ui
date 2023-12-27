@@ -1,10 +1,10 @@
-import { ReactElement, useRef, useState } from 'react';
-import { TooltipContent, Position } from './tooltip-content';
+import * as React from 'react';
 import { getBoundingAbsoluteRect } from '../../helpers';
+import { TooltipContent, Position } from './TooltipContent';
 
 export interface TooltipProps {
   content: JSX.Element | string;
-  children: ReactElement;
+  children: React.ReactElement;
   arrowClassName?: string;
   wrapperClassName?: string;
   className?: string;
@@ -13,7 +13,7 @@ export interface TooltipProps {
   disabled?: boolean;
 }
 
-export function Tooltip({
+export const Tooltip = ({
   content,
   children,
   wrapperClassName = '',
@@ -22,11 +22,11 @@ export function Tooltip({
   delay = 250,
   position = 'bottom',
   disabled = false,
-}: TooltipProps) {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [isOpened, setIsOpened] = useState(true);
-  const ref = useRef<HTMLDivElement | null>(null);
+}: TooltipProps) => {
+  const [x, setX] = React.useState(0);
+  const [y, setY] = React.useState(0);
+  const [isOpened, setIsOpened] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement | null>(null);
 
   const onMouseEnter = () => {
     if (!ref.current || disabled) return;
@@ -59,7 +59,7 @@ export function Tooltip({
   };
 
   const onMouseLeave = () => {
-    // setIsOpened(false);
+    setIsOpened(false);
   };
 
   return (
@@ -82,4 +82,4 @@ export function Tooltip({
       />
     </div>
   );
-}
+};
