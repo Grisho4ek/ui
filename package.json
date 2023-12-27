@@ -1,0 +1,35 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "description": "A React TypeScript library built with esbuild",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:ts": "tsc",
+    "build": "npm run build:ts && node esbuild.config.js"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "library",
+    "esbuild"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-transition-group": "^4.4.5",
+    "tailwind-merge": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-transition-group": "^4.4.10",
+    "esbuild": "^0.13.10",
+    "typescript": "^4.4.4"
+  }
+}
